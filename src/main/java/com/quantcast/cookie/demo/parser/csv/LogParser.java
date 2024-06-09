@@ -25,6 +25,7 @@ public class LogParser {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
+                // ignore the line if the format is not correct
                 if (parts.length == 2) {
                     String cookie = parts[0];
                     LocalDateTime dateTime = LocalDateTime.parse(parts[1], DateTimeFormatter.ISO_DATE_TIME);
@@ -33,7 +34,7 @@ public class LogParser {
                 }
             }
         } catch (IOException e) {
-            throw new LogsParseException("Error parsing log file", e);
+            throw new LogsParseException("Error parsing log file, the file path not exist ", e);
         }
 
         return cookieLogs;
