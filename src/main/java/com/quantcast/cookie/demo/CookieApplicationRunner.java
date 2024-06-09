@@ -42,7 +42,6 @@ public class CookieApplicationRunner implements CommandLineRunner {
             for (String cookie : mostActiveCookies) {
                 LOGGER.info(cookie);
             }
-
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         }

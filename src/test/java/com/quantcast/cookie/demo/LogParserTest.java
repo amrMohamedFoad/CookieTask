@@ -13,6 +13,7 @@ import com.quantcast.cookie.demo.parser.csv.LogParser;
 
 class LogParserTest {
 
+    private final String FILE_PATH = "../logs/cookie_log.csv";
     private LogParser logParser;
 
     @BeforeEach
@@ -22,9 +23,8 @@ class LogParserTest {
 
     @Test
     void testParseValidLogFile() {
-        String file = "logs/test/valid_cookie_log.csv";
-        List<CookieLog> cookieLogs = logParser.parseLogFile(file);
-        assertEquals(3, cookieLogs.size());
+        List<CookieLog> cookieLogs = logParser.parseLogFile(FILE_PATH);
+        assertEquals(8, cookieLogs.size());
     }
 
     @Test
