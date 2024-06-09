@@ -37,6 +37,7 @@ public class CookieApplicationRunner implements CommandLineRunner {
             List<String> mostActiveCookies = cookieService.findMostActiveCookies(commandLineArgs.getFileName(),
                     commandLineArgs.getDate());
             LOGGER.info("Most active cookies for date: " + commandLineArgs.getDate());
+
             // print mostActiveCookies
             for (String cookie : mostActiveCookies) {
                 LOGGER.info(cookie);
