@@ -27,12 +27,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- OpenCSV for handling CSV files -->
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>5.5.2</version>
-        </dependency>
 		<!-- Apache Commons CLI for command-line parsing -->
         <dependency>
             <groupId>commons-cli</groupId>
