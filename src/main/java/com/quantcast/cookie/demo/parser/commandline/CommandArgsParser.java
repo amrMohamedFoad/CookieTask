@@ -19,8 +19,9 @@ public class CommandArgsParser {
         try {
             Options options = getOptions();
             CommandLine cmd = parseCommandLineArgs(args, options);
-            String fileName = getOptionValue(cmd, "f", "Filename not provided");
-            LocalDate date = parseDate(getOptionValue(cmd, "d", "Date not provided"));
+            String fileName = cmd.getOptionValue("f");
+            String dateString = cmd.getOptionValue("d");
+            LocalDate date = dateString != null ? parseDate(dateString) : null;
             return new CommandLineArgs(fileName, date);
         } catch (ParseException e) {
             throw new LogsParseException("Failed to parse command line arguments", e);
@@ -32,14 +33,6 @@ public class CommandArgsParser {
         options.addRequiredOption("f", "filename", true, "The path of the cookie log CSV file");
         options.addOption("d", "date", true, "The date to get most active cookies for");
         return options;
-    }
-
-    private String getOptionValue(CommandLine cmd, String option, String errorMessage) {
-        String value = cmd.getOptionValue(option);
-        if (value == null)
-            throw new IllegalArgumentException(errorMessage);
-
-        return value;
     }
 
     private CommandLine parseCommandLineArgs(String[] args, Options options) throws ParseException {
