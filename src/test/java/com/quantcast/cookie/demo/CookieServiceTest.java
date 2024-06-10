@@ -13,7 +13,7 @@ import com.quantcast.cookie.demo.service.CookieService;
 
 class CookieServiceTest {
 
-    private final String TEST_RESOURCES_FILE_PATH = "src/main/resources/logs/";
+    private final String TEST_RESOURCES_FILE_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
     private CookieService cookieService;
 
     @BeforeEach

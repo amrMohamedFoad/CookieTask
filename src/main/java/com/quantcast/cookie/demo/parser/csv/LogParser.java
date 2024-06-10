@@ -15,7 +15,6 @@ import com.quantcast.cookie.demo.model.CookieLog;
 
 @Component
 public class LogParser {
-
     public List<CookieLog> parseLogFile(String fileName) {
 
         List<CookieLog> cookieLogs = new ArrayList<>();
