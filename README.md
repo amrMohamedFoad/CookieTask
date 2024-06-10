@@ -58,14 +58,14 @@ AtY0laUfhglK3lC7
 To run the application, use the following command:
 
 ```bash
-java -jar target/most-active-cookie-1.0.0.jar -f <path-to-log-file> -d <date>
+java -jar target/cookie-0.0.1-SNAPSHOT.jar -f <path-to-log-file> -d <date>
 ```
 
 ### Example
-If your `cookie_log.csv` file is located in the `logs` directory and you want to find the most active cookie(s) for December 9, 2018, use:
+If your `cookie_log.csv` file is located in the `resources` directory and you want to find the most active cookie(s) for December 9, 2018, use:
 
 ```bash
-java -jar target/most-active-cookie-1.0.0.jar -f data/cookie_log.csv -d 2018-12-09
+java -jar target/cookie-0.0.1-SNAPSHOT.jar -f data/cookie_log.csv -d 2018-12-09
 ```
 
 ## Testing
