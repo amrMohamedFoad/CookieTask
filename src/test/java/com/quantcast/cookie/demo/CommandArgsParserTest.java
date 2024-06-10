@@ -13,7 +13,7 @@ import com.quantcast.cookie.demo.parser.commandline.CommandLineArgs;
 
 class CommandArgsParserTest {
 
-    private final String FILE_PATH = "../logs/cookie_log.csv";
+    private final String FILE_PATH = "src/test/resources/cookie_log.csv";
     private CommandArgsParser commandLineParser;
 
     @BeforeEach

@@ -19,7 +19,7 @@ public class LogParser {
     public List<CookieLog> parseLogFile(String fileName) {
 
         List<CookieLog> cookieLogs = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("logs/" + fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             // Skip the first line
             br.readLine();
             String line;
