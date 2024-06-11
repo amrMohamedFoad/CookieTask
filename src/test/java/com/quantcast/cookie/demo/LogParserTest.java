@@ -13,7 +13,7 @@ import com.quantcast.cookie.demo.parser.csv.LogParser;
 
 class LogParserTest {
 
-    private final String TEST_RESOURCES_FILE_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
+    private final String TEST_LOGS_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
     private LogParser logParser;
 
     @BeforeEach
@@ -23,7 +23,7 @@ class LogParserTest {
 
     @Test
     void testParseValidLogFile() {
-        List<CookieLog> cookieLogs = logParser.parseLogFile(TEST_RESOURCES_FILE_PATH + "cookie_log.csv");
+        List<CookieLog> cookieLogs = logParser.parseLogFile(TEST_LOGS_PATH + "cookie_log.csv");
         assertEquals(8, cookieLogs.size());
     }
 

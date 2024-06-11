@@ -13,7 +13,7 @@ import com.quantcast.cookie.demo.service.CookieService;
 
 class CookieServiceTest {
 
-    private final String TEST_RESOURCES_FILE_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
+    private final String TEST_LOGS_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
     private CookieService cookieService;
 
     @BeforeEach
@@ -25,7 +25,7 @@ class CookieServiceTest {
     void testFindMostActiveCookies_HasOnlyOneMostActiveCookie() {
         LocalDate date = LocalDate.parse("2018-12-09");
         List<String> mostActiveCookies = cookieService
-                .findMostActiveCookies(TEST_RESOURCES_FILE_PATH + "cookie_log.csv", date);
+                .findMostActiveCookies(TEST_LOGS_PATH + "cookie_log.csv", date);
         assertEquals(1, mostActiveCookies.size());
         assertEquals("AtY0laUfhglK3lC7", mostActiveCookies.get(0));
     }
@@ -34,7 +34,7 @@ class CookieServiceTest {
     void testFindMostActiveCookies_HasNoMostActiveCookies() {
         LocalDate date = LocalDate.parse("2018-12-10");
         List<String> mostActiveCookies = cookieService
-                .findMostActiveCookies(TEST_RESOURCES_FILE_PATH + "cookie_log.csv", date);
+                .findMostActiveCookies(TEST_LOGS_PATH + "cookie_log.csv", date);
         assertEquals(true, mostActiveCookies.isEmpty());
     }
 
@@ -42,7 +42,7 @@ class CookieServiceTest {
     void testFindMostActiveCookies_HasMoreThanOneMostActiveCookies() {
         LocalDate date = LocalDate.parse("2018-12-08");
         List<String> mostActiveCookies = cookieService
-                .findMostActiveCookies(TEST_RESOURCES_FILE_PATH + "cookie_log.csv", date);
+                .findMostActiveCookies(TEST_LOGS_PATH + "cookie_log.csv", date);
         assertEquals(true, mostActiveCookies.size() > 1);
     }
 }

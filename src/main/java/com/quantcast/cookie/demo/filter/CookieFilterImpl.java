@@ -16,6 +16,11 @@ public class CookieFilterImpl implements CookieFilter {
     public List<String> filterByDate(List<CookieLog> cookieLogs, LocalDate date) throws LogsParseException {
         List<String> filteredCookieLogs = new ArrayList<>();
         for (CookieLog cookieLog : cookieLogs) {
+            // stop filtering when the current log dat is smaller than the current log, as
+            // it logs are sorted
+            if (cookieLog.getDateTime().toLocalDate().compareTo(date) < 0) {
+                break;
+            }
             String cookie = cookieLog.getCookie();
             LocalDate cookieLogDate = cookieLog.getDateTime().toLocalDate();
             if (cookieLogDate.equals(date)) {

@@ -19,7 +19,7 @@ import com.quantcast.cookie.demo.service.CookieService;
 public class CookieApplicationRunner implements CommandLineRunner {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CookieApplicationRunner.class);
-    private static final String LOGS_FILE_PATH = "src/main/java/com/quantcast/cookie/demo/resources/";
+    private static final String PROD_LOGS_PATH = "src/main/resources/logs/";
     private final CommandArgsParser parser;
     private final CookieService cookieService;
 
@@ -36,7 +36,7 @@ public class CookieApplicationRunner implements CommandLineRunner {
             CommandLineArgs commandLineArgs = parser.parse(args);
             LOGGER.info("File Name: " + commandLineArgs.getFileName() + " Date: " + commandLineArgs.getDate());
             List<String> mostActiveCookies = cookieService.findMostActiveCookies(
-                    LOGS_FILE_PATH + commandLineArgs.getFileName(),
+                    PROD_LOGS_PATH + commandLineArgs.getFileName(),
                     commandLineArgs.getDate());
             LOGGER.info("Most active cookies for date: " + commandLineArgs.getDate());
 

@@ -13,7 +13,7 @@ import com.quantcast.cookie.demo.parser.commandline.CommandLineArgs;
 
 class CommandArgsParserTest {
 
-    private final String FILE_PATH = "src/test/resources/cookie_log.csv";
+    private final String TEST_LOGS_PATH = "src/test/java/com/quantcast/cookie/demo/resources/logs/";
     private CommandArgsParser commandLineParser;
 
     @BeforeEach
@@ -23,22 +23,24 @@ class CommandArgsParserTest {
 
     @Test
     void testValidArguments() {
-        String[] args = new String[] { "-f", FILE_PATH, "-d", "2018-12-09" };
+        String filePath = TEST_LOGS_PATH + "cookie_log.csv";
+        String[] args = new String[] { "-f", filePath, "-d", "2018-12-09" };
         CommandLineArgs commandLineArgs = commandLineParser.parse(args);
-        assertEquals(FILE_PATH, commandLineArgs.getFileName());
+        assertEquals(filePath, commandLineArgs.getFileName());
         assertEquals(LocalDate.parse("2018-12-09"), commandLineArgs.getDate());
     }
 
     @Test
     void testMissingDateArgument() {
-        String[] args = new String[] { "-f", FILE_PATH };
+        String filePath = TEST_LOGS_PATH + "cookie_log.csv";
+        String[] args = new String[] { "-f", filePath };
         CommandLineArgs commandLineArgs = commandLineParser.parse(args);
-        assertEquals(FILE_PATH, commandLineArgs.getFileName());
+        assertEquals(filePath, commandLineArgs.getFileName());
     }
 
     @Test
     void testInvalidDateFormat() {
-        String[] args = new String[] { "-f", FILE_PATH, "-d",
+        String[] args = new String[] { "-f", TEST_LOGS_PATH + "cookie_log.csv", "-d",
                 "invalid-date" };
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             commandLineParser.parse(args);
